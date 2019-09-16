@@ -10,10 +10,10 @@ script:
   - docker run -e CI=true docker-complex npm test
 
 after_success:
-  - docker build -t multi-client ./client
-  - docker build -t multi-nginx ./nginx
-  - docker build -t multi-server ./server
-  - docker build -t multi-worker ./worker
+  - docker build -t multi-client -f ./client/Dockerfile ./client
+  - docker build -t multi-nginx  -f ./nginx/Dockerfile ./nginx
+  - docker build -t multi-server -f ./server/Dockerfile ./server
+  - docker build -t multi-worker -f ./worker/Dockerfile ./worker
 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
