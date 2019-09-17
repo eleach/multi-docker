@@ -17,7 +17,7 @@ after_success:
 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
+  - docker push eleach6633/multi-client
   - docker push eleach6633/multi-nginx
   - docker push eleach6633/multi-server
   - docker push eleach6633/multi-worker
-  - docker push eleach6633/multi-client
